@@ -8,42 +8,34 @@ This project analyzes and visualizes the **Implied Volatility (IV)** structure f
 
 ### 1. Black–Scholes Model
 
-For a non-dividend-paying asset, the **Black–Scholes option pricing formula** is:
+Black–Scholes Option Pricing Formula (Non-Dividend Paying Asset):
 
-\[
-C = S_0 N(d_1) - K e^{-rT} N(d_2)
-\]
+Call Option: C = S0 _ N(d1) - K _ exp(-r _ T) _ N(d2)
+Put Option: P = K _ exp(-r _ T) _ N(-d2) - S0 _ N(-d1)
 
-\[
-P = K e^{-rT} N(-d_2) - S_0 N(-d_1)
-\]
+Where:
+d1 = (ln(S0 / K) + (r + 0.5 _ σ^2) _ T) / (σ _ sqrt(T))
+d2 = d1 - σ _ sqrt(T)
 
-where:
-\[
-d_1 = \frac{\ln(S_0/K) + (r + \frac{1}{2} \sigma^2)T}{\sigma \sqrt{T}}, \quad
-d_2 = d_1 - \sigma \sqrt{T}
-\]
-
-| Symbol         | Meaning                              |
-| -------------- | ------------------------------------ |
-| \( C, P \)     | Call and Put option prices           |
-| \( S_0 \)      | Current spot price of the underlying |
-| \( K \)        | Strike price                         |
-| \( r \)        | Risk-free interest rate              |
-| \( T \)        | Time to maturity (in years)          |
-| \( \sigma \)   | Implied volatility                   |
-| \( N(\cdot) \) | Cumulative normal distribution       |
+Symbols:
+C, P : Call and Put option prices
+S0 : Current spot price of the underlying
+K : Strike price
+r : Risk-free interest rate
+T : Time to maturity (in years)
+σ : Implied volatility
+N(x) : Cumulative normal distribution function
 
 ---
 
 ### 2. Implied Volatility (IV)
 
-Implied Volatility (\( \sigma\_{impl} \)) is the value of \( \sigma \) that satisfies the Black–Scholes price given an observed market option price.
+Implied Volatility (σimpl) is the value of σ that satisfies the Black–Scholes price given an observed market option price.
 
 That is:
 
 \[
-C*{market} = BS*{call}(S*0, K, r, T, \sigma*{impl})
+C_market = BS_call(S\*0, K, r, T, σimpl)
 \]
 
 Since there is no closed-form solution for \( \sigma\_{impl} \), it is found **numerically** using iterative methods like:
@@ -58,7 +50,7 @@ Since there is no closed-form solution for \( \sigma\_{impl} \), it is found **n
 Moneyness is defined as:
 
 \[
-M = \frac{K}{S_0}
+M = K/S0
 \]
 
 - **At-The-Money (ATM)**: \( M = 1 \)
@@ -69,7 +61,7 @@ Empirically, IV tends to form a **U-shape** (called a _volatility smile_) when p
 
 ---
 
-## ⚙️ Implementation Details
+## Implementation Details
 
 - **Language:** Python 3.10+
 - **Environment:** Jupyter Notebook / VS Code
@@ -90,13 +82,11 @@ Empirically, IV tends to form a **U-shape** (called a _volatility smile_) when p
 
 ---
 
-## 📊 Results
+## Results
 
 The following plots visualize the **volatility surface** and **smile** structure:
 
-|                Volatility Surface                | Volatility Smile |
-| :----------------------------------------------: | :--------------: |
-| ![Volatility Smile Plot](./volatility_smile.png) |                  |
+![Volatility Smile Plot](./volatility_smile.png)
 
 **Interpretation:**
 
@@ -106,7 +96,7 @@ The following plots visualize the **volatility surface** and **smile** structure
 
 ---
 
-## 🧠 Possible Extensions
+## Possible Extensions
 
 - Fit **parametric volatility surfaces** (SABR, Heston models).
 - Train ML regressors (e.g., XGBoost or LSTM) for IV forecasting.
