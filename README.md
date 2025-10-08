@@ -8,23 +8,31 @@ This project analyzes and visualizes the **Implied Volatility (IV)** structure f
 
 ### 1. Black–Scholes Model
 
-Black–Scholes Option Pricing Formula (Non-Dividend Paying Asset):
+# Black–Scholes Option Pricing Formula (Non-Dividend Paying Asset)
 
-Call Option: C = S0 _ N(d1) - K _ exp(-r _ T) _ N(d2)
-Put Option: P = K _ exp(-r _ T) _ N(-d2) - S0 _ N(-d1)
+For a non-dividend-paying asset, the option prices are given by:
+
+**Call Option (C):**  
+C = S0 _ N(d1) - K _ exp(-r _ T) _ N(d2)
+
+**Put Option (P):**  
+P = K _ exp(-r _ T) _ N(-d2) - S0 _ N(-d1)
 
 Where:
 d1 = (ln(S0 / K) + (r + 0.5 _ σ^2) _ T) / (σ _ sqrt(T))
 d2 = d1 - σ _ sqrt(T)
 
-Symbols:
-C, P : Call and Put option prices
-S0 : Current spot price of the underlying
-K : Strike price
-r : Risk-free interest rate
-T : Time to maturity (in years)
-σ : Implied volatility
-N(x) : Cumulative normal distribution function
+**Symbols:**
+
+| Symbol | Meaning                              |
+| ------ | ------------------------------------ |
+| C, P   | Call and Put option prices           |
+| S0     | Current spot price of the underlying |
+| K      | Strike price                         |
+| r      | Risk-free interest rate              |
+| T      | Time to maturity (in years)          |
+| σ      | Implied volatility                   |
+| N(x)   | Cumulative normal distribution       |
 
 ---
 
