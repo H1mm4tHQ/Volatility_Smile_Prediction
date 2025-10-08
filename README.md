@@ -4,7 +4,7 @@ This project analyzes and visualizes the **Implied Volatility (IV)** structure f
 
 ---
 
-## 🧮 Mathematical Foundation
+## Mathematical Foundation
 
 ### 1. Black–Scholes Model
 
@@ -13,14 +13,14 @@ This project analyzes and visualizes the **Implied Volatility (IV)** structure f
 For a non-dividend-paying asset, the option prices are given by:
 
 **Call Option (C):**  
-C = S0 _ N(d1) - K _ exp(-r _ T) _ N(d2)
+C = S0 \* N(d1) - K \* exp(-r \* T) \* N(d2)
 
 **Put Option (P):**  
-P = K _ exp(-r _ T) _ N(-d2) - S0 _ N(-d1)
+P = K \* exp(-r \* T) \* N(-d2) - S0 \* N(-d1)
 
 Where:
-d1 = (ln(S0 / K) + (r + 0.5 _ σ^2) _ T) / (σ _ sqrt(T))
-d2 = d1 - σ _ sqrt(T)
+d1 = (ln(S0 / K) + (r + 0.5 \* σ^2) \* T) / (σ \* sqrt(T))
+d2 = d1 - σ \* sqrt(T)
 
 **Symbols:**
 
@@ -43,10 +43,10 @@ Implied Volatility (σimpl) is the value of σ that satisfies the Black–Schole
 That is:
 
 \[
-C_market = BS_call(S\*0, K, r, T, σimpl)
+C_market = BS_call(S0, K, r, T, σimpl)
 \]
 
-Since there is no closed-form solution for \( \sigma\_{impl} \), it is found **numerically** using iterative methods like:
+Since there is no closed-form solution for \( σimpl \), it is found **numerically** using iterative methods like:
 
 - **Newton–Raphson**, or
 - **Bisection Method**
@@ -92,7 +92,7 @@ Empirically, IV tends to form a **U-shape** (called a _volatility smile_) when p
 
 ## Results
 
-The following plots visualize the **volatility surface** and **smile** structure:
+The following plots visualize the **volatility surface** and **smile** structure
 
 ![Volatility Smile Plot](./volatility_smile.png)
 
