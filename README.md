@@ -19,7 +19,9 @@ C = S0 \* N(d1) - K \* exp(-r \* T) \* N(d2)
 P = K \* exp(-r \* T) \* N(-d2) - S0 \* N(-d1)
 
 Where:
+
 d1 = (ln(S0 / K) + (r + 0.5 \* σ^2) \* T) / (σ \* sqrt(T))
+
 d2 = d1 - σ \* sqrt(T)
 
 **Symbols:**
